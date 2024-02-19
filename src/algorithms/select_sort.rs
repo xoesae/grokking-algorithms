@@ -12,7 +12,8 @@ fn search_lowest(vec: &Vec<i32>) -> usize {
     index
 }
 
-fn select_sort(mut vec: Vec<i32>) -> Vec<i32> {
+#[allow(dead_code)]
+pub fn selectsort(mut vec: Vec<i32>) -> Vec<i32> {
     let mut new_vec = Vec::new();
 
     for _i in 0..(vec.len()) {
@@ -23,12 +24,15 @@ fn select_sort(mut vec: Vec<i32>) -> Vec<i32> {
     new_vec
 }
 
-fn main() {
-    let mut numbers: Vec<i32> = Vec::new();
 
-    for i in [10, 11, 3, 1, 40, 30, 20]  {
-        numbers.push(i);
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_sort() {
+        let result = selectsort([10, 11, 3, 1, 40, 30, 20].to_vec());
+
+        assert_eq!(result, [1, 3, 10, 11, 20, 30, 40].to_vec());
     }
-
-    println!("{:?}", select_sort(numbers));
 }

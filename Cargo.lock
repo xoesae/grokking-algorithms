@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "binary-search"
+name = "grokking-algorithms"
 version = "0.1.0"
